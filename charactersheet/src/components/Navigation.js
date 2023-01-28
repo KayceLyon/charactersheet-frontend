@@ -116,20 +116,16 @@ const Navigation = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
-                component={Link}
-                href='/characters'
                 underline="none"
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              > Home
+              > <NavLink className="link" to={"/characters"}> Home </NavLink>
               </Button>
               <Button
-                component={Link}
-                href='/characters/new'
                 underline="none"
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              > New Character
+              > <NavLink className="link" to={"/characters/new"}> New Character </NavLink>
               </Button>
           </Box>
 
