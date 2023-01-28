@@ -8,25 +8,32 @@ import Button from '@mui/material/Button'
 
 
 const EditCharacterForm = (props) => {
+    let edit = {name: " "}
+    const [formData, setFormData] = useState(edit)
 
     const navigate = useNavigate()
     const parameter = useParams()
 
-    console.log(parameter.id)
-
     const handleChange = (event)=> {
         const {name, value, type, checked} = event.target
-        props.setFormData(prevFormData => ({
+        setFormData(prevFormData => ({
             ...prevFormData,
             [name]: type === "checkbox" ? checked: value
         })) 
     }
 
-    const handleEditCharacter = (parameter) => {
+    console.log(`https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`)
+    console.log(parameter.id)
+    const handleEditCharacter = () => {
         axios.put(
-          `https://fierce-brook-63604.herokuapp.com/characters/edit/${parameter}`,
+          `https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`,
           {
-            name: props.formData.name
+            name: formData.name,
+            class: formData.class,
+            level: formData.level,
+            background: formData.background,
+            race: formData.race,
+            alignment: formData.alignment
           }).then(()=>{
             axios
             .get('https://fierce-brook-63604.herokuapp.com/characters')
@@ -55,17 +62,66 @@ const EditCharacterForm = (props) => {
           type='text' 
           name='name' 
           onChange={handleChange}
-          value={props.formData.name}
+          value={formData.name}
           required
           id="outlined-required"
           label="Name"
         />
 
+        <TextField
+        type='text'
+        name='class'
+        onChange={handleChange}
+        value={formData.class}
+        required
+        id="outlined-required"
+        label="Class"
+        />
+
+        <TextField
+        type='text'
+        name='level'
+        onChange={handleChange}
+        value={formData.level}
+        required
+        id="outlined-required"
+        label="Level"
+        />
+
+        <TextField
+        type='text'
+        name='background'
+        onChange={handleChange}
+        value={formData.background}
+        required
+        id="outlined-required"
+        label="Background"
+        />
+
+        <TextField
+        type='text'
+        name='race'
+        onChange={handleChange}
+        value={formData.race}
+        required
+        id="outlined-required"
+        label="Race"
+        />
+
+<TextField
+        type='text'
+        name='alignment'
+        onChange={handleChange}
+        value={formData.alignment}
+        required
+        id="outlined-required"
+        label="Alignment"
+        />
 
         </div>
 
         </Box>
-        <Button variant="contained" type='submit' onClick={(event)=>{{handleEditCharacter(parameter.id)}}}>Submit</Button>
+        <Button variant="contained" type='submit' onClick={handleEditCharacter}>Submit</Button>
 
         </Container>
         

@@ -10,8 +10,14 @@ import EditCharacterForm from './components/EditCharacterForm'
 const App = () => {
   const [character, setCharacter] = useState([])
   const [formData, setFormData] = useState({
-    name: ""
+    name: "",
+    class: "",
+    level: "",
+    background: "",
+    race: "",
+    alignment: ""
   })
+  
   return (
     <>
     <Routes>

@@ -24,7 +24,13 @@ const CharacterForm = (props) => {
         axios.post(
           'https://fierce-brook-63604.herokuapp.com/characters',
           {
-            name: props.formData.name
+            name: props.formData.name,
+            class: props.formData.class,
+            level: props.formData.level,
+            background: props.formData.background,
+            race: props.formData.race,
+            alignment: props.formData.alignment
+
           }).then(()=>{
             axios
             .get('https://fierce-brook-63604.herokuapp.com/characters')
@@ -58,6 +64,58 @@ const CharacterForm = (props) => {
           id="outlined-required"
           label="Name"
         />
+
+        <TextField
+        type='text'
+        name='class'
+        onChange={handleChange}
+        value={props.formData.class}
+        required
+        id="outlined-required"
+        label="Class"
+        />
+
+        <TextField
+        type='text'
+        name='level'
+        onChange={handleChange}
+        value={props.formData.level}
+        required
+        id="outlined-required"
+        label="Level"
+        />
+
+        <TextField
+        type='text'
+        name='background'
+        onChange={handleChange}
+        value={props.formData.background}
+        required
+        id="outlined-required"
+        label="Background"
+        />
+
+        <TextField
+        type='text'
+        name='race'
+        onChange={handleChange}
+        value={props.formData.race}
+        required
+        id="outlined-required"
+        label="Race"
+        />
+
+<TextField
+        type='text'
+        name='alignment'
+        onChange={handleChange}
+        value={props.formData.alignment}
+        required
+        id="outlined-required"
+        label="Alignment"
+        />
+
+
 
 
         </div>

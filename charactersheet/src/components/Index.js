@@ -7,6 +7,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
+
 import '../App.css'
 
 const Index = (params) => {
@@ -43,28 +46,40 @@ const Index = (params) => {
 }
 
   return (
-    <>
+    <Container sx={{maxWidth: 'xl', backgrounColor: "black"}}>
+    <Box mt={2} sx={{ width: '100%' }}>
+    <Grid container rowSpacing={{xs: .5, md:2}} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+
     {params.character.map((characters)=>{ 
                     return(
                         <>
-                        <Box key={characters._id}>
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                        <Grid xs={12} sm={6} md={4} lg={4} >
+                        <Card sx={{backgroundColor: 'primary.main',
+                            '&:hover': {
+                            backgroundColor: 'primary.dark',
+                            opacity: [0.9, 0.8, 0.7]}}}>
+                        <CardContent >
+                            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
                                 {characters.name}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                            <Button onClick={(event)=> {{handleDelete(characters._id)}}}> Delete </Button>                                
-                            <Button onClick={(event)=>{{handleEdit(characters._id)}}}> Edit </Button>
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
+                                `{characters.class}: Level {characters.level}`
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
+                                `{characters.race}:{characters.alignment}`
+                            </Typography>
+                        </CardContent>
+                        <CardActions sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                        <Button sx={{color: 'white'}} onClick={(event)=> {{handleDelete(characters._id)}}}> Delete </Button>                                
+                        <Button sx={{color: 'white'}} onClick={(event)=>{{handleEdit(characters._id)}}}> Edit </Button>
                             </CardActions>
                             </Card>
-                        
-                        </Box>
+                            </Grid>
+
                         </>  )})} 
-        </>
-               
-                
+                        </Grid>
+                        </Box>
+                        </Container>
   ) 
 }
 
