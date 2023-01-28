@@ -43,8 +43,6 @@ const Navigation = () => {
           <Typography
             variant="h6"
             noWrap
-            component={Link}
-            href="/characters"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
