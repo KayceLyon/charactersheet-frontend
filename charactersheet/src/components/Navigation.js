@@ -99,8 +99,6 @@ const Navigation = () => {
           <Typography
             variant="h5"
             noWrap
-            component={Link}
-            href="/characters"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -112,7 +110,7 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            Character Sheets
+            <NavLink className="link" to={"/characters"}> Character Sheets </NavLink>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
