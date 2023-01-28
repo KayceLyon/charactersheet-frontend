@@ -87,12 +87,12 @@ const Navigation = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <MenuItem onClick={handleCloseNavMenu} component={Link} href='/characters'>
-                  <Typography textAlign="center">Home</Typography>               
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink to={"/characters"} textAlign="center">Home</NavLink>               
                   </MenuItem>
 
-                  <MenuItem onClick={handleCloseNavMenu} component={Link} href='/characters/new'>
-                  <Typography textAlign="center">New Character</Typography>               
+                  <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink to={"/characters/new"} textAlign="center">New Character</NavLink>               
                   </MenuItem>
             </Menu>
           </Box>
