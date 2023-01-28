@@ -110,7 +110,7 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            <NavLink className="link" to={"/"}> Character Sheets </NavLink>
+            Character Sheets 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
