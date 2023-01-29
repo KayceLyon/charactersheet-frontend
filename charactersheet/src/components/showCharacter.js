@@ -6,21 +6,21 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 const showCharacter = (props) => {
-        const parameter = useParams()
+    //     const parameter = useParams()
 
-        const axiosRequest = [`https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`]
+    //     const axiosRequest = [`https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`]
              
-       const getCharacters = () => { 
-        Promise.all(axiosRequest.map((axiosRequest)=> axios.get(axiosRequest))).then(
-        axios.spread((...allData) => {
-          props.setCharacter(allData[0].data);
-        })
-        )
-       }
+    //    const getCharacters = () => { 
+    //     Promise.all(axiosRequest.map((axiosRequest)=> axios.get(axiosRequest))).then(
+    //     axios.spread((...allData) => {
+    //       props.setCharacter(allData[0].data);
+    //     })
+    //     )
+    //    }
       
-        useEffect(()=>{
-        getCharacters()
-        }, []);
+    //     useEffect(()=>{
+    //     getCharacters()
+    //     }, []);
 
     return (
         <>
