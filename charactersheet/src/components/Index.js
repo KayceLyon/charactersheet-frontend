@@ -45,6 +45,10 @@ const Index = (params) => {
     navigate(`/characters/edit/${character}`)
 }
 
+  const handleShow = (character) => {
+    navigate(`/characters/${character}`)
+  }
+
   return (
     <Container sx={{maxWidth: 'xl', backgrounColor: "black"}}>
     <Box mt={2} sx={{ width: '100%' }}>
@@ -58,15 +62,21 @@ const Index = (params) => {
                             '&:hover': {
                             backgroundColor: 'primary.dark',
                             opacity: [0.9, 0.8, 0.7]}}}>
-                        <CardContent >
+                        <CardContent onClick={(event) => {{handleShow(characters._id)}}}>
                             <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
-                                {characters.name}
+                                Name: {characters.name}
                             </Typography>
-                            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
-                                `{characters.class}: Level {characters.level}`
+                            <Typography gutterBottom variant="h5" component="div" textAlign="left" sx={{color: 'white'}}  >
+                               Class: {characters.class}
                             </Typography>
-                            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{color: 'white'}}  >
-                                `{characters.race}:{characters.alignment}`
+                            <Typography gutterBottom variant="h5" component="div" textAlign="left" sx={{color: 'white'}}  >
+                                Level: {characters.level}
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="div" textAlign="left" sx={{color: 'white'}}  >
+                               Race: {characters.race}
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="div" textAlign="left" sx={{color: 'white'}}  >
+                                Alignment: {characters.alignment}
                             </Typography>
                         </CardContent>
                         <CardActions sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>

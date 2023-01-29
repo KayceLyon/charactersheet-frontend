@@ -8,8 +8,8 @@ import Button from '@mui/material/Button'
 
 
 const EditCharacterForm = (props) => {
-    let edit = {name: " "}
-    const [formData, setFormData] = useState(edit)
+    let edit = {...props.character}
+    const [formData, setFormData] = useState([edit])
 
     const navigate = useNavigate()
     const parameter = useParams()
@@ -22,8 +22,6 @@ const EditCharacterForm = (props) => {
         })) 
     }
 
-    console.log(`https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`)
-    console.log(parameter.id)
     const handleEditCharacter = () => {
         axios.put(
           `https://fierce-brook-63604.herokuapp.com/characters/${parameter.id}`,

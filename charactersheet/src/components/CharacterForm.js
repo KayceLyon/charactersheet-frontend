@@ -114,9 +114,6 @@ const CharacterForm = (props) => {
         label="Alignment"
         />
 
-
-
-
         </div>
 
         </Box>
