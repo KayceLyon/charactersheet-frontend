@@ -1,3 +1,5 @@
 #charactersheet-frontend
 
-Site deployed via [Netlify](https://charactersheetrecord.netlify.app/characters).
+Backend available at: https://github.com/KayceLyon/charactersheet-backend
+
+Site deployed at: https://charactersheetrecord.netlify.app/characters
